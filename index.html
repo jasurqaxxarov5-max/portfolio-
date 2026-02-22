@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qaxxorov Jasurbek - Backend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #fbfbfd;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            object-fit: cover;
+            border: 4px solid #f5f5f7;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #1d1d1f;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .social-link:hover {
+            background: #424245;
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #86868b;
+            margin-bottom: 2rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #515154;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .experience-item, .education-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #06c;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #86868b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #515154;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #06c;
+        }
+
+        .contact-info {
+            color: #515154;
+            line-height: 1.8;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .reference-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .reference-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-role {
+            color: #86868b;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            margin-top: 6rem;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        footer p {
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="about">
+        <img src="./img/rasm.jpg" alt="Qaxxorov Jasurbek" class="profile-img">
+        <h1>Qaxxorov Jasurbek</h1>
+        <p class="subtitle">Backend Developer</p>
+        <div class="social-links">
+            <a href="https://github.com/IT-frondEnd" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+            <a href="https://linkedin.com/in/jasur-qaxxarov-820644392" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="https://t.me/QAXXOROV_DeV" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.14.121.099.155.232.171.326.016.093.036.305.02.469z"/>
+                </svg>
+                Telegram
+            </a>
+            <a href="https://instagram.com/_qaxx0ro.v" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Instagram
+            </a>
+            <a href="https://www.facebook.com/jasurbek.qaxxarov.2025" target="_blank" class="social-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+            </a>
+        </div>
+        <p class="intro">I am a dedicated and hard-working developer with experience in building telegram bots and working with Python-based technologies. I enjoy learning, improving systems, and creating tools that bring real value. I am always open to new challenges and opportunities for growth.</p>
+    </div>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="experience-item">
+            <div class="job-title">Front-End Instructor</div>
+            <div class="company">Tamaddun & Magnit Learning Centers, Bekobod</div>
+            <div class="date">2022-2023</div>
+            <p class="description">Completed the Front-End course in Bekobod and substituted for the instructor. Taught students web technologies including HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Backend Developer (Support)</div>
+            <div class="company">Road24 Application</div>
+            <div class="date">2025</div>
+            <p class="description">Working on backend development and application support using Python and the Django framework, focusing on enhancing backend functionality and improving app services.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <div class="job-title">Ustudy IT Academy</div>
+            <div class="company">Django / IT Python Programming & Telegram Bot Development</div>
+            <div class="date">2024-2025 (Years 1&2)</div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Python Programming</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Django Framework</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Telegram Bot Development (Aiogram)</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Backend Development & Automation</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Git & Version Control</h3>
+            </div>
+            <div class="skill-card">
+                <h3>English & Spanish</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Get in Touch</h3>
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> +998948553004</p>
+                    <p><strong>Email:</strong> jasurqaxxarov3@gmail.com</p>
+                    <p><strong>Address:</strong> Toshkent bekobod</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>References</h3>
+                <div class="reference-grid" style="display: block;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="reference-name">Qaxxorov Jasurbek</div>
+                        <div class="reference-role">Road24 / Support</div>
+                        <p style="font-size: 0.9rem; color: #515154;">+998-94-855-30-04<br>jasurqaxxarov5@gmail.com</p>
+                    </div>
+                    <div>
+                        <div class="reference-name">Aliyev Temur</div>
+                        <div class="reference-role">Ustudy IT academy / Teacher</div>
+                        <p style="font-size: 0.9rem; color: #515154;">+998 99 992 33 95<br>References available upon request</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Qaxxorov Jasurbek. All rights reserved.</p>
+    </footer>
+</body>
+</html>
