@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qaxxorov Jasurbek - Backend Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #fbfbfd;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(251, 251, 253, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #86868b;
+            margin-bottom: 2rem;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #515154;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .experience-item, .education-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            color: #06c;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .date {
+            color: #86868b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            color: #515154;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #06c;
+        }
+
+        .contact-info {
+            color: #515154;
+            line-height: 1.8;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .reference-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .reference-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-role {
+            color: #86868b;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            margin-top: 6rem;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        footer p {
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero" id="about">
+        <img src="https://i.postimg.cc/6QR6yMCp/image.jpg" alt="Qaxxorov Jasurbek" class="profile-img">
+        <h1>Qaxxorov Jasurbek</h1>
+        <p class="subtitle">Backend Developer</p>
+        <p class="intro">I am a dedicated and hard-working developer with experience in building telegram bots and working with Python-based technologies. I enjoy learning, improving systems, and creating tools that bring real value. I am always open to new challenges and opportunities for growth.</p>
+    </div>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        
+        <div class="experience-item">
+            <div class="job-title">Front-End Instructor</div>
+            <div class="company">Tamaddun & Magnit Learning Centers, Bekobod</div>
+            <div class="date">2022-2023</div>
+            <p class="description">Completed the Front-End course in Bekobod and substituted for the instructor. Taught students web technologies including HTML, CSS, and JavaScript.</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-title">Backend Developer (Support)</div>
+            <div class="company">Road24 Application</div>
+            <div class="date">2025</div>
+            <p class="description">Working on backend development and application support using Python and the Django framework, focusing on enhancing backend functionality and improving app services.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <div class="job-title">Ustudy IT Academy</div>
+            <div class="company">Django / IT Python Programming & Telegram Bot Development</div>
+            <div class="date">2024-2025 (Years 1&2)</div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Expertise</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Python Programming</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Django Framework</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Telegram Bot Development (Aiogram)</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Backend Development & Automation</h3>
+            </div>
+            <div class="skill-card">
+                <h3>Git & Version Control</h3>
+            </div>
+            <div class="skill-card">
+                <h3>English & Spanish</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Get in Touch</h3>
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> +998948553004</p>
+                    <p><strong>Email:</strong> jasurqaxxarov3@gmail.com</p>
+                    <p><strong>Address:</strong> Toshkent bekobod</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h3>References</h3>
+                <div class="reference-grid" style="display: block;">
+                    <div style="margin-bottom: 1.5rem;">
+                        <div class="reference-name">Qaxxorov Jasurbek</div>
+                        <div class="reference-role">Road24 / Support</div>
+                        <p style="font-size: 0.9rem; color: #515154;">+998-94-855-30-04<br>jasurqaxxarov3@gmail.com</p>
+                    </div>
+                    <div>
+                        <div class="reference-name">Aliyev Temur</div>
+                        <div class="reference-role">Ustudy IT academy / Teacher</div>
+                        <p style="font-size: 0.9rem; color: #515154;">+998 99 992 33 95<br>References available upon request</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Qaxxorov Jasurbek. All rights reserved.</p>
+    </footer>
+</body>
+</html>
